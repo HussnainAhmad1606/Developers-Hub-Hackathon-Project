@@ -1,0 +1,26 @@
+{% extends 'core/basic.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block body %}
+
+
+    <h1>Home</h1>
+    {% if user.is_authenticated %}
+    <h1>Hello, {{ request.user }}</h1>
+    <form action="{% url 'logout' %}" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Logout">
+    </form>
+    {% endif %}
+
+{% endblock %}
+
+
+{% block js %}
+
+{% endblock %}

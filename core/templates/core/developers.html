@@ -1,0 +1,25 @@
+{% extends 'core/basic.html' %}
+
+{% block title %}Developers{% endblock %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block body %}
+
+  
+    <h1>Devs</h1>
+    <h1>Hello, {{ request.user }}</h1>
+    {% for dev in devs %}
+        {{ dev.name }} <a href="{% url "dev_profile" dev.id %}">Show</a>
+        <br/>
+        {% endfor %}
+
+
+{% endblock %}
+
+
+{% block js %}
+
+{% endblock %}

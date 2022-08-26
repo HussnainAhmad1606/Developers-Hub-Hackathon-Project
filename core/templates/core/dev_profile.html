@@ -1,0 +1,38 @@
+{% extends 'core/basic.html' %}
+
+{% block title %}{{ dev.name }} Profile - Developers Hub{% endblock %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block body %}
+
+
+    <h1>Home</h1>
+
+    <h1>Hello, My name is {{ dev.name }}, {{ dev.id }}</h1>
+    <form action="{% url 'logout' %}" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Logout">
+    </form>
+    
+    <form method="POST" action="{% url 'delete_developer' dev.id %}">
+        {% csrf_token %}
+        <input type="submit" value="Delete Developer">
+        
+    </form>
+
+    <form method="GET" action="{% url 'update_developer' dev.id %}">
+        {% csrf_token %}
+        <input type="submit" value="Update Developer">
+        
+    </form>
+
+
+{% endblock %}
+
+
+{% block js %}
+
+{% endblock %}

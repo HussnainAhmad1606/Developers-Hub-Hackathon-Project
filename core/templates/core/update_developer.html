@@ -1,0 +1,18 @@
+{% extends 'core/basic.html' %}
+
+{% block title %}Update {{ dev.name }}{% endblock %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block body %}
+
+<form method="POST" action="{% url 'update_developer' dev.id %}">
+    {% csrf_token %}
+    <input type="text" placeholder="Developer Name" name="name" id="" value="{{ dev.name }}">
+    <input type="text" name="skills" placeholder="Enter Skills" id="" value="{{ dev.skills }}">
+    <input type="submit" value="Update Developer">
+    
+</form>
+{% endblock %}

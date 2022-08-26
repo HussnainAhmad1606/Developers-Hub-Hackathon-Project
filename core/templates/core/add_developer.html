@@ -1,0 +1,20 @@
+{% extends 'core/basic.html' %}
+
+{% block title %}Add new Developer - Developers Hub{% endblock %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block body %}
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" placeholder="Developer Name" name="name" id="">
+        <input type="text" name="skills" placeholder="Enter Skills" id="">
+        <input type="submit" value="Submit Profile">
+    </form>
+{% endblock %}
+
+{% block js %}
+
+{% endblock %}

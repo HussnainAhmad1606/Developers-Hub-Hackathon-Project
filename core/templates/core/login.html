@@ -1,0 +1,22 @@
+{% extends 'core/basic.html' %}
+
+{% block title %}Log In{% endblock %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block body %}
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Enter Username" id="">
+        <input type="password" name="password" id="password" placeholder="Enter Password">
+
+        <input type="submit" value="Login">
+    </form>
+
+{% endblock %}
+
+{% block js %}
+
+{% endblock %}
