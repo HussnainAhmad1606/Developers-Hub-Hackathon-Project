@@ -48,36 +48,28 @@
 nav {
     width: 100%;
     height: 8vh;
-    background-color: var(--dark-blue);
-    color: #EFEFEF;
-}
-nav{
-    display: flex;
-    text-align: center;
-    align-items: center;
+    background-color: var(--dark-blue) !important;
 }
 
-nav ul {
-    display: flex;
-    text-align: center;
-    align-items: center;
-    list-style: none;
+.navbar {
+    background-color: var(--dark-blue) !important;
+    color: white !important;
+
 }
 
-nav ul li {
-    padding: 20px;
-}
+
+
+
 
 nav ul li a {
     text-decoration: none;
-    color: #EFEFEF;
-    transition: 0.2s ease all;
+    color: #EFEFEF !important;
 }
 
-nav ul li a:hover {
-    color: #EFEFEF;
-    border-bottom: 2px solid #EFEFEF;
+#dropdown li a {
+    color: black !important;
 }
+
 
 /* 
 =================
