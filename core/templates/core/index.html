@@ -3,21 +3,124 @@
 {% block title %}Home{% endblock %}
 
 {% block css %}
+{% load static %}
 
+<link rel="stylesheet" href="{% static 'core/index.css' %}">
 {% endblock %}
 
 {% block body %}
 
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Developers</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+    </nav>
 
-    <h1>Home</h1>
-    {% if user.is_authenticated %}
-    <h1>Hello, {{ request.user }}</h1>
-    <form action="{% url 'logout' %}" method="POST">
-        {% csrf_token %}
-        <input type="submit" value="Logout">
-    </form>
-    {% endif %}
+    <div id="hero">
 
+        <div id="leftHero">
+            <h1 id="mainHeading">Hire best talent for <br> your company</h1>
+            <p id="mainTagLine">Hire developers according to your needs and
+                budget through our in-depth search engine</p>
+            <!-- Form -->
+            <form class="row g-3 needs-validation" novalidate>
+                <div class="col-md-6">
+                    <label for="validationCustom04" class="form-label">Role:</label>
+                    <select class="form-select" id="validationCustom04" required>
+                      <option selected value="">Backend</option>
+                      <option value="">FrontEnd</option>
+                      <option value="">Full Stack</option>
+                      <option value="">DevOps</option>
+                      <option value="">Android Developer</option>
+                    </select>
+                  </div>
+                <div class="col-md-6">
+                    <label for="validationCustom04" class="form-label">Job Type:</label>
+                    <select class="form-select" id="validationCustom04" required>
+                      <option selected value="">Full Time</option>
+                      <option value="">Part Time</option>
+                      <option value="">Contractual</option>
+                    </select>
+                  </div>
+                  
+
+
+
+                <div class="col-md-6">
+                  <label for="validationCustom01" class="form-label">Location: </label>
+                  <input type="text" class="form-control" id="validationCustom01"
+                  placeholder="eg. France"
+                  required>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+               
+                <div class="col-md-6">
+                  <label for="validationCustomUsername" class="form-label">CTC Range:</label>
+                  <div class="input-group has-validation">
+                    <span class="input-group-text" id="inputGroupPrepend">$</span>
+                    <input type="text" class="form-control" 
+                    placeholder="Min"
+                    id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>_
+                    <input type="text" class="form-control" id="validationCustomUsername" 
+                    placeholder="Max"
+                    aria-describedby="inputGroupPrepend" required>
+                    <div class="invalid-feedback">
+                      Please choose a username.
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <label for="validationCustom03" class="form-label">Skills Required:</label>
+                  <input type="text" class="form-control" 
+                  placeholder="eg. JavaScript, MongoDB"
+                  id="validationCustom03" required>
+                  <div class="invalid-feedback">
+                    Please provide skills
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <label for="validationCustom04" class="form-label">Experience Required:</label>
+                  <select class="form-select" id="validationCustom04" required>
+                    <option selected value="">1-3 Years</option>
+                    <option value="">3-5 Years</option>
+                    <option value="">5-7 Years</option>
+                    <option value="">7-10 Years</option>
+                    <option value="">10+ Years</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Please select a valid state.
+                  </div>
+                </div>
+                
+               
+                <div class="col-12">
+                  <button id="searchBtn" class="btn btn-primary" type="submit">Search</button>
+                </div>
+              </form>
+
+        </div>
+
+        <div id="rightHero">
+            <h1 id="featuresHeading">Features</h1>
+                <div id="authBox" class="box">
+                    <i class="fa-solid fa-user-check heroIcons"></i>
+<h1 id="feature1">Built-in Authentication</h1>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt illo iusto repellat.</p>
+                </div>
+
+                <div id="efficientSearch" class="box">
+                    <i class="fa-brands fa-searchengin heroIcons"></i>
+                    <h1 id="feature2">Efficient Search</h1>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt illo iusto repellat.</p>
+                </div>
+        </div>
+
+    </div>
 {% endblock %}
 
 
