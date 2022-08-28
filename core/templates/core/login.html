@@ -3,20 +3,88 @@
 {% block title %}Log In{% endblock %}
 
 {% block css %}
+{% load static %}
 
+<link rel="stylesheet" href="{% static 'core/login.css' %}">
 {% endblock %}
 
 {% block body %}
-    <form method="POST">
-        {% csrf_token %}
-        <input type="text" name="username" placeholder="Enter Username" id="">
-        <input type="password" name="password" id="password" placeholder="Enter Password">
+    
 
-        <input type="submit" value="Login">
-    </form>
+    <!-- Form -->
+    
+    <form method="POST" class="row g-3 needs-validation" novalidate>
+        {% csrf_token %}
+
+        <div id="user">
+                <div id="dev">
+                    <i class="fa-solid fa-code"></i> 
+                    &nbsp; Developer
+                </div>
+                <div id="rec">
+                    <i class="fa-solid fa-building"></i>&nbsp; Recuriter
+                </div>
+        </div>
+
+
+
+        <div class="col-md-6">
+          <label for="validationCustom01" class="form-label">Username: </label>
+          <input type="text" class="form-control" id="username" name="username"
+          placeholder="Enter Username"
+          required>
+        </div>
+       
+       
+        <div class="col-md-6">
+          <label for="validationCustom03" class="form-label">Password:</label>
+          <input type="password" class="form-control" 
+          placeholder="Enter Valid Password" name="password"
+          id="password" required>
+        </div>
+       
+        
+       
+        <div class="col-md-6">
+          <input id="loginBtn" class="btn" type="submit" value="Login">
+        </div>
+      </form>
 
 {% endblock %}
 
 {% block js %}
+<script>
+    console.log("Login")
+    let recButton = document.getElementById("rec")
+    let devButton = document.getElementById("dev")
+    let username = document.getElementById("username")
+    let password = document.getElementById("password")
+    recButton.addEventListener("click", ()=> {
+        console.log("REc")
+        document.getElementById("loginBtn").style.backgroundColor = "DarkViolet"
+        recButton.style.backgroundColor = "DarkViolet"
+        recButton.style.color = "white"
+        devButton.style.backgroundColor = "white"
+        devButton.style.color = "black"
+        username.classList.add("purple-place");
+        username.classList.remove("blue-place");
+        password.classList.add("purple-place");
+        password.classList.remove("blue-place");
+        
+    })
+    devButton.addEventListener("click", ()=> {
+        console.log("dev")
+        document.getElementById("loginBtn").style.backgroundColor = "DodgerBlue"
+        recButton.style.backgroundColor = "white"
+        recButton.style.color = "black"
+        devButton.style.backgroundColor = "DodgerBlue"
+        devButton.style.color = "white"
 
+        username.classList.add("blue-place")
+        username.classList.remove("purple-place")
+        password.classList.add("blue-place")
+        password.classList.remove("purple-place")
+
+    })
+</script>
 {% endblock %}

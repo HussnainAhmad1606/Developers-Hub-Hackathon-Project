@@ -1,0 +1,92 @@
+
+@font-face {
+    font-family: AileronHeavy;
+    src: url("fonts/Aileron-Heavy.otf");
+}
+@font-face {
+    font-family: AileronLight;
+    src: url("fonts/Aileron-Light.otf");
+}
+@font-face {
+    font-family: AileronThin;
+    src: url("fonts/Aileron-Thin.otf");
+}
+@font-face {
+    font-family: AileronRegular;
+    src: url("fonts/Aileron-Regular.otf");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: AileronRegular
+}
+
+:root {
+    --dark-blue: #2696FD;
+    --light-blue: #C8E4FF;
+    --lightest-blue: #D3EAFF;
+
+    --dark-purple: #9542FF;
+    --light-purple: #CDA6FF;
+    --lightest-purple: #EDDEFF;
+}
+
+::placeholder { 
+    color: var(--dark-blue) !important;
+    opacity: 1;
+    font-weight: bold;
+}
+
+form {
+    width: 100%;
+    height: 100vh;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#loginBtn {
+    width: 100%;
+    height: 7vh;
+    background-color: var(--dark-blue);
+    color: white !important;
+}
+
+
+#dev {
+    background-color: var(--dark-blue);
+
+}
+
+
+#user div {
+    cursor: pointer;
+    font-family: AileronHeavy;
+    display: inline-block;
+    color: #D3EAFF;
+    padding: 10px 20px;
+    border-radius: 15px;
+    margin: 0px 10px;
+}
+
+#user div#rec {
+    color: black
+}
+
+#user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.purple-place::-webkit-input-placeholder {
+    color: var(--dark-purple) !important;
+ }
+
+.blue-place::-webkit-input-placeholder {
+    color: var(--dark-blue) !important;
+ }
