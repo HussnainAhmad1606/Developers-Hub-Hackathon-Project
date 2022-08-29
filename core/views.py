@@ -27,7 +27,6 @@ def add_developer(request):
     if request.method == "POST":
         data = request.POST
         da = db.insert('hackathon', 'developers', [{"name":data['name'], "skills":data['skills'], "about":data["about"], "bio":data["bio"], "currentCTC":data['currentctc'], "expectedCTC": data["expectedctc"], "currentCompany":data["company"], "experience":data["experience"], "github":data["github"], "linkedin":data["linkedin"], "twitter":data["twitter"], "location":data["location"], "email":data["email"], "role":data["role"], "personalWebsite": data["website"]}])
-        harperID = da.inserted_hashes[0]
         messages.success(request, "Developer Profile Added Successfully")
         return redirect('homepage')
     return render(request, 'core/add_developer.html')
