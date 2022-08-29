@@ -1,0 +1,143 @@
+
+@font-face {
+    font-family: AileronHeavy;
+    src: url("fonts/Aileron-Heavy.otf");
+}
+@font-face {
+    font-family: AileronLight;
+    src: url("fonts/Aileron-Light.otf");
+}
+@font-face {
+    font-family: AileronThin;
+    src: url("fonts/Aileron-Thin.otf");
+}
+@font-face {
+    font-family: AileronRegular;
+    src: url("fonts/Aileron-Regular.otf");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: AileronRegular
+}
+
+:root {
+    --dark-blue: #2696FD;
+    --light-blue: #C8E4FF;
+    --lightest-blue: #D3EAFF;
+
+    --dark-purple: #9542FF;
+    --light-purple: #CDA6FF;
+    --lightest-purple: #EDDEFF;
+}
+
+.color-blue {
+    color: var(--dark-blue)
+}
+
+.experience {
+    color: var(--dark-purple);
+    font-family: AileronHeavy;
+}
+
+#location {
+    font-family: AileronHeavy;
+}
+
+#profile {
+    display: flex;
+    padding: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+#profile #left #company-info {
+    display: flex;
+    
+}
+
+#profile #left #company-info div {
+    margin: 20px 20px;
+}
+
+
+#connectBtn {
+    background-color: var(--dark-blue);
+    color: white;
+    padding: 20px 50px;
+    border-radius: 10px;
+    font-family: AileronHeavy;
+}
+
+#connectBtn:hover {
+    color: white;
+    outline: none;
+}
+
+#right #photo img {
+    width: 200px;
+    height: 200px;
+}
+
+
+#left {
+    width: 60%;
+}
+
+#right {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: var(--dark-blue) !important;
+}
+
+
+#socials {
+    display: flex;
+}
+
+#socials div {
+    margin: 0px 20px;
+}
+
+
+.social-icon {
+    color: var(--dark-purple);
+    font-size: 32px !important;
+}
+
+#github a{
+    color: black !important;
+}
+
+
+#personalWebsite h2 {
+    margin: 30px 0px;    
+    font-size: 25px !important;
+}
+
+
+#about {
+    text-align: center;
+}
+
+
+#company-info div h2 {
+    font-size: 25px !important;
+    font-weight: bold;
+}
+
+#personalWebsite h2 a {
+    text-decoration: none;
+    color: var(--dark-blue)
+}
+
+
+#skills h2, #devName {
+     font-size: 25px;
+     font-family: AileronHeavy;
+}

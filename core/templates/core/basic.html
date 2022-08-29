@@ -41,7 +41,22 @@
         #websiteHeading {
           color: white;
         }
-        
+        #options {
+          list-style: none;
+      }
+
+      #loginOptions li a {
+        text-decoration: none;
+        color: black !important;
+      }
+
+      #loginOptions {
+        left: -100px
+      }
+
+      #logoutForm li a {
+        color: black;
+      }
     </style>
         {% block css %}{% endblock %}
    
@@ -72,25 +87,28 @@
           <li class="nav-item">
             <a class="nav-link" href="{% url 'developers' %}">Developers</a>
           </li>
+        </ul>
+        {% if user.is_authenticated %}
+        <ul id="options">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown
+              Hi, {{ request.user }}
             </a>
-            <ul id="dropdown" class="dropdown-menu">
+            <ul id="loginOptions" class="dropdown-menu">
               <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
+            
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <form id="logoutForm" action="{% url 'logout' %}" method="POST">
+                {% csrf_token %}
+              <li><input type='submit' class="dropdown-item" value="Logout"></li>
+              </form>
             </ul>
           </li>
-          <li class="nav-item">
-            <a class="nav-link disabled">Disabled</a>
-          </li>
         </ul>
-        
+        {% else %}
           <a href="{% url 'signup' %}" class="mx-2 btn btn-outline-light" type="submit">Sign Up</a>
           <a href="{% url 'login' %}" class="btn btn-outline-light" type="submit">Log In</a>
-       
+       {% endif %}
       </div>
     </div>
   </nav>
