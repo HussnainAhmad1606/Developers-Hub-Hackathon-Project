@@ -1,0 +1,99 @@
+
+@font-face {
+    font-family: AileronHeavy;
+    src: url("fonts/Aileron-Heavy.otf");
+}
+@font-face {
+    font-family: AileronLight;
+    src: url("fonts/Aileron-Light.otf");
+}
+@font-face {
+    font-family: AileronThin;
+    src: url("fonts/Aileron-Thin.otf");
+}
+@font-face {
+    font-family: AileronRegular;
+    src: url("fonts/Aileron-Regular.otf");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: AileronRegular
+}
+
+:root {
+    --dark-blue: #2696FD;
+    --light-blue: #C8E4FF;
+    --lightest-blue: #D3EAFF;
+
+    --dark-purple: #9542FF;
+    --light-purple: #CDA6FF;
+    --lightest-purple: #EDDEFF;
+}
+
+#developersHead {
+    font-family: AileronHeavy;
+}
+
+
+.btn-view {
+    background-color: var(--dark-blue) !important;
+    color: white;
+    width: 100%;
+}
+
+.btn-view:hover {
+    color: white;
+    outline: none;
+}
+
+#developers {
+    padding: 30px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 10px;
+    row-gap: 20px;
+}
+
+.developer {
+    padding: 30px;
+    width: 90%;
+    display: inline-block;
+    box-shadow: 5px 5px 18px 3px rgba(130,130,130,0.75);
+    -webkit-box-shadow: 5px 5px 18px 3px rgba(130,130,130,0.75);
+    -moz-box-shadow: 5px 5px 18px 3px rgba(130,130,130,0.75);
+}
+
+
+.experience {
+    color: var(--dark-purple);
+}
+
+.dev-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+
+
+.developer .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.developer .about {
+    text-align: center;
+}
+
+.dev-name {
+    font-family: AileronHeavy;
+    font-size: 20px;
+}
+
+.color-blue {
+    color: var(--dark-blue)
+}

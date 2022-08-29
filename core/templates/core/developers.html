@@ -3,19 +3,37 @@
 {% block title %}Developers{% endblock %}
 
 {% block css %}
+{% load static %}
 
+<link rel="stylesheet" href="{% static 'core/developers.css' %}">
 {% endblock %}
 
 {% block body %}
 
   
-    <h1>Devs</h1>
-    <h1>Hello, {{ request.user }}</h1>
-    {% for dev in devs %}
-        {{ dev.name }} <a href="{% url "dev_profile" dev.id %}">Show</a>
-        <br/>
-        {% endfor %}
+<center>
+    <h1 class="my-4" id="developersHead">Developers</h1>
 
+</center> 
+
+    <div id="developers">
+    {% for dev in devs %}
+       <div class="developer">
+            <div class="header">
+                <img class="dev-photo" src="{% static 'core/developer-profile.jpg' %}" alt="">
+                <div class="info">
+                    <h3 class="color-blue dev-name">{{ dev.name }}</h3>
+                    <div class="experience"><i class="fa-solid fa-star"></i> {{ dev.experience }} Experience</div>
+                 </div>
+            </div>
+
+            <div class="color-blue about">
+                {{ dev.about }}
+            </div>
+        <a class="my-2 btn btn-view" href="{% url "dev_profile" dev.id %}">View Profile</a>
+       </div>
+        {% endfor %}
+</div>
 
 {% endblock %}
 
