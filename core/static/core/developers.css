@@ -33,6 +33,12 @@
     --lightest-purple: #EDDEFF;
 }
 
+
+#addDeveloper {
+    background-color: var(--dark-blue) !important;
+    color: white !important;
+}
+
 #developersHead {
     font-family: AileronHeavy;
 }

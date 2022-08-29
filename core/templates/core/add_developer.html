@@ -16,12 +16,12 @@
         <h1 class="my-3" id="heading">Add New Developer</h1>
     
     </center>    
-    <form method="POST" class="row g-3 needs-validation" novalidate>
+    <form method="POST" class="row g-3 needs-validation" novalidate autocomplete="on">
         {% csrf_token %}
 
         <div class="col-md-6">
           <label for="validationCustom01" class="form-label">Name: </label>
-          <input type="text" class="form-control" id="validationCustom01"
+          <input type="text" name="name" class="form-control" id="validationCustom01"
           placeholder="eg. John"
           required>
           <div class="valid-feedback">
@@ -31,7 +31,7 @@
 
         <div class="col-md-6">
           <label for="validationCustom01" class="form-label">Email: </label>
-          <input type="email" class="form-control" id="validationCustom02"
+          <input type="email" name="email" class="form-control" id="validationCustom02"
           placeholder="eg. admin@developer.com"
           required>
           <div class="valid-feedback">
@@ -40,11 +40,11 @@
         </div>
        
         <div class="col-md-6">
-          <label for="validationCustomUsername" class="form-label">Username:</label>
+          <label for="validationCustomUsername" class="form-label">Location:</label>
           <div class="input-group has-validation">
             
-            <input type="text" class="form-control" 
-            placeholder="Provide your username"
+            <input type="text" name="location" class="form-control" 
+            placeholder="Provide your location"
             id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
             <div class="invalid-feedback">
               Please choose a username.
@@ -57,7 +57,7 @@
             
             <input type="text" class="form-control" 
             placeholder="eg. https://example.com/"
-            id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+            id="validationCustomUsername" aria-describedby="inputGroupPrepend" required name="website">
             <div class="invalid-feedback">
               Please provide personal Website.
             </div>
@@ -66,26 +66,35 @@
 
         <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">Bio (Short): </label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Write your short intro"></textarea>
+            <textarea name="bio" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Write your short intro"></textarea>
           </div>
 
-        <div class="col-md-6">
+        <div class="col-md-4">
           <label for="validationCustom03" class="form-label">Skills:</label>
           <input type="text" class="form-control" 
           placeholder="eg. JavaScript, MongoDB"
-          id="validationCustom03" required>
+          id="validationCustom03" name="skills" required>
           <div class="invalid-feedback">
             Please provide skills
           </div>
         </div>
 
-        <div class="col-md-6">
-          <label for="validationCustom03" class="form-label">Experience:</label>
-          <input type="text" class="form-control" 
-          placeholder="eg. 1 Years"
-          id="validationCustom03" required>
+        <div class="col-md-4">
+          <label for="validationCustom03" class="form-label">Experience (Years):</label>
+          <input type="number" class="form-control" 
+          placeholder="eg. 5"
+          id="validationCustom03" name="experience" required>
           <div class="invalid-feedback">
             Please provide experience
+          </div>
+        </div>
+        <div class="col-md-4">
+          <label for="validationCustom03" class="form-label">Role:</label>
+          <input type="text" class="form-control" 
+          placeholder="eg. backend developer"
+          id="validationCustom03" name="role" required>
+          <div class="invalid-feedback">
+            Please provide role
           </div>
         </div>
 
@@ -93,20 +102,33 @@
         
         <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">Description (Long): </label>
-            <textarea placeholder="Write about you..." class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <textarea placeholder="Write about you..." class="form-control" id="exampleFormControlTextarea1" name="about" rows="3"></textarea>
           </div>
 
           <div class="col-md-4">
             <label for="inputEmail4" class="form-label"><i class="fa-brands fa-linkedin"></i> Linkedin: </label>
-            <input type="text" class="form-control" id="inputEmail4">
+            <input type="text" name='linkedin' class="form-control" id="inputEmail4">
           </div>
           <div class="col-md-4">
             <label for="inputPassword4" class="form-label"><i class="fa-brands fa-twitter"></i> Twitter: </label>
-            <input type="text" class="form-control" id="inputPassword4">
+            <input type="text" name="twitter" class="form-control" id="inputPassword4">
           </div>
           <div class="col-md-4">
             <label for="inputPassword4" class="form-label"><i class="fa-brands social-icon fa-github"></i> Github: </label>
-            <input type="text" class="form-control" id="inputPassword4">
+            <input type="text" name="github" class="form-control" id="inputPassword4">
+          </div>
+
+          <div class="col-md-4">
+            <label for="inputEmail4" class="form-label">Current Company: </label>
+            <input type="text" name="company" class="form-control" id="inputEmail4">
+          </div>
+          <div class="col-md-4">
+            <label for="inputPassword4" class="form-label">Current CTC ($): </label>
+            <input type="text" name="currentctc" class="form-control" id="inputPassword4">
+          </div>
+          <div class="col-md-4">
+            <label for="inputPassword4" class="form-label">Expected CTC ($):</label>
+            <input type="text" name="expectedctc" class="form-control" id="inputPassword4">
           </div>
 
        
