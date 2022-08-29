@@ -1,3 +1,4 @@
+from http.client import HTTPResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
@@ -29,6 +30,21 @@ def add_developer(request):
         messages.success(request, "Developer Profile Added Successfully")
         return redirect('homepage')
     return render(request, 'core/add_developer.html')
+
+def searchDev(request):
+    if request.method == "POST":
+        location = request.POST.get("location")
+        role = request.POST.get("role")
+        skills = request.POST.get("skills")
+        mini = request.POST.get("min")
+        maxi = request.POST.get("max")
+        experience = request.POST.get("experience")
+        print(role)
+        print(experience)
+        devs = db.sql(f"SELECT * FROM hackathon.developers WHERE `skills` LIKE '%{skills}%' AND `experience`='{experience}' AND `location`='{location}' AND `role`='{role}' AND `currentCTC` BETWEEN '{mini}' AND '{maxi}';")
+        print(devs)
+        context = {"devs": devs, "length": len(devs)}
+        return render(request, "core/search.html", context)
 
 def update_developer(request, pk):
     if request.method == "POST":

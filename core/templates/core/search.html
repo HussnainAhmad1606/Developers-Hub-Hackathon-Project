@@ -1,6 +1,6 @@
 {% extends 'core/basic.html' %}
 
-{% block title %}Developers{% endblock %}
+{% block title %}Search{% endblock %}
 
 {% block css %}
 {% load static %}
@@ -17,13 +17,16 @@
 </center> 
 
     <div id="developers">
+        {% if length == 0%}
+        <h2>No Search Found Against Your Query</h2>
+        {% else %}
     {% for dev in devs %}
        <div class="developer">
             <div class="header">
                 <img class="dev-photo" src="{% static 'core/developer-profile.jpg' %}" alt="">
                 <div class="info">
                     <h3 class="color-blue dev-name">{{ dev.name }}</h3>
-                    <div class="experience"><i class="fa-solid fa-star"></i> {{ dev.experience }} Years Experience</div>
+                    <div class="experience"><i class="fa-solid fa-star"></i> {{ dev.experience }} Experience</div>
                  </div>
             </div>
 
@@ -34,6 +37,8 @@
        </div>
         {% endfor %}
 </div>
+
+{% endif %}
 
 {% endblock %}
 
