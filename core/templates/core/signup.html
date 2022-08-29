@@ -35,7 +35,7 @@
           
         <div class="col-md-6">
             <label for="validationCustom01" class="form-label">Name: </label>
-            <input type="text" class="form-control" id="name"
+            <input type="text" name="name" class="form-control" id="name"
             placeholder="eg. John"
             required>
             <div class="valid-feedback">
@@ -45,7 +45,7 @@
   
           <div class="col-md-6">
             <label for="validationCustom01" id="emailText" class="form-label">Email: </label>
-            <input type="email" class="form-control" id="email"
+            <input type="email" name="email" class="form-control" id="email"
             placeholder="eg. admin@developer.com"
             required>
             <div class="valid-feedback">
@@ -59,9 +59,21 @@
               
               <input type="text" class="form-control" 
               placeholder="Provide your username"
-              id="username" aria-describedby="inputGroupPrepend" required>
+              id="username" name="username" aria-describedby="inputGroupPrepend" required>
               <div class="invalid-feedback">
                 Please choose a username.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="validationCustomUsername" class="form-label">Password:</label>
+            <div class="input-group has-validation">
+              
+              <input type="password" class="form-control" 
+              placeholder="Provide your username"
+              id="password" name="password" aria-describedby="inputGroupPrepend" required>
+              <div class="invalid-feedback">
+                Please choose a password.
               </div>
             </div>
           </div>
@@ -80,6 +92,8 @@
               <input type="text" class="form-control" id="inputPassword4">
             </div>
        </div> 
+
+       <input type="hidden" id="userType" name="userType" value="Developer">
        
         <div class="col-md-6">
           <input id="loginBtn" class="btn" type="submit" value="Sign Up">
@@ -97,9 +111,11 @@
     let name = document.getElementById("name");
     let about = document.getElementById("about");
     let emailText = document.getElementById("emailText");
+    let userType = document.getElementById("userType");
 
     recButton.addEventListener("click", ()=> {
         console.log("REc")
+        userType.value = "Recuriter";
         document.getElementById("loginBtn").style.backgroundColor = "DarkViolet";
         recButton.style.backgroundColor = "DarkViolet";
         recButton.style.color = "white";
@@ -116,7 +132,8 @@
         emailText.textContent = "Company Email: ";
     })
     devButton.addEventListener("click", ()=> {
-        console.log("dev")
+        console.log("dev");
+        userType.value = "Developer"
         document.getElementById("loginBtn").style.backgroundColor = "DodgerBlue";
         recButton.style.backgroundColor = "white";
         recButton.style.color = "black";
