@@ -3,31 +3,78 @@
 {% block title %}{{ dev.name }} Profile - Developers Hub{% endblock %}
 
 {% block css %}
+{% load static %}
 
+<link rel="stylesheet" href="{% static 'core/dev_profile.css' %}">
 {% endblock %}
 
 {% block body %}
+<div id="profile">
+    <div id="left">
+        <div class="color-blue" id="location">
+            <i class="fa-solid fa-location-dot"></i> {{ dev.location }}
+        </div>
+
+        <div id="description">
+            <p>{{ dev.description }}</p>
+        </div>
+
+        <div class="experience"><i class="fa-solid fa-star"></i> {{ dev.experience }} Experience</div>
 
 
-    <h1>Home</h1>
+        <div id="company-info">
+            <div id="company">
+                <h2>Company</h2>
+                <p>{{ dev.currentCompany }}</p>
+            </div>
+            <div id="currentctc">
+                <h2>Current CTC</h2>
+                <p>{{ dev.currentCTC }}</p>
+            </div>
+            <div id="expectedctc">
+                <h2>Expected CTC</h2>
+                <p>{{ dev.expectedCTC }}</p>
+            </div>
+        </div>
 
-    <h1>Hello, My name is {{ dev.name }}, {{ dev.id }}</h1>
-    <form action="{% url 'logout' %}" method="POST">
-        {% csrf_token %}
-        <input type="submit" value="Logout">
-    </form>
-    
-    <form method="POST" action="{% url 'delete_developer' dev.id %}">
-        {% csrf_token %}
-        <input type="submit" value="Delete Developer">
-        
-    </form>
+        <div id="skills">
+            <h2>Skills:</h2>
+            <p>{{ dev.skills }}</p>
+        </div>
 
-    <form method="GET" action="{% url 'update_developer' dev.id %}">
-        {% csrf_token %}
-        <input type="submit" value="Update Developer">
-        
-    </form>
+
+        <a href="" class="btn" id="connectBtn">Connect</a>
+       
+    </div>
+
+    <div id="right">
+        <div id="photo">
+            <img src="{% static 'core/developer-profile.jpg' %}" alt="">
+        </div>
+
+        <h2 id="devName">{{ dev.name }}
+        </h2>
+
+        <p class="color-blue" id="about">{{ dev.about }}</p>
+
+        <div id="socials">
+            <div id="twitter">
+                <a href="https://www.twitter.com/{{ dev.twitter }}" target="_blank"><i class="fa-brands social-icon fa-twitter"></i></a>
+            </div>
+            <div id="github">
+                <a href="https://www.github.com/{{ dev.github }}" target="_blank"><i class="fa-brands social-icon fa-github"></i></a>
+            </div>
+            <div id="linkedin">
+                <a href="https://www.linkedin.com/in/{{ dev.linkedin }}" target="_blank"><i class="fa-brands social-icon fa-linkedin"></i></a>
+            </div>
+        </div>
+
+
+        <div id="personalWebsite">
+            <h2><a target="_blank" href="{{ dev.personalWebsite }}">{{ dev.personalWebsite }}&nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i></a></h2>
+        </div>
+    </div>
+</div>
 
 
 {% endblock %}
