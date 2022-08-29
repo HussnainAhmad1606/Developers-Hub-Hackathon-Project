@@ -39,13 +39,13 @@
     font-weight: bold;
 }
 
-form {
+form  {
     width: 100%;
     height: 100vh;
     display: flex !important;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+
 }
 
 #loginBtn {
@@ -89,6 +89,13 @@ form {
 
 .blue-place::-webkit-input-placeholder {
     color: var(--dark-blue) !important;
+}
+
+#devForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 #heading {

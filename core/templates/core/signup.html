@@ -3,22 +3,137 @@
 {% block title %}Signup{% endblock %}
 
 {% block css %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'core/signup.css' %}">
 
 {% endblock %}
-
 {% block body %}
-    <form method="POST">
-        {% csrf_token %}
-        <input type="text" name="username" placeholder="Enter Username" id="">
-        <input type="email" name="email" placeholder="Enter Email" id="email">
-        <input type="password" name="password" id="password" placeholder="Enter Password">
+    
 
-        <input type="submit" value="Sign Up">
-    </form>
+    <!-- Form -->
+    <center>
+        <h1 class="my-3" id="heading">Sign Up</h1>
+    
+    </center>    
+    <form method="POST" class="row g-3 needs-validation" novalidate>
+        {% csrf_token %}
+    
+ <div id="user">
+                <div id="dev">
+                    <i class="fa-solid fa-code"></i> 
+                    &nbsp; Developer
+                </div>
+                <div id="rec">
+                    <i class="fa-solid fa-building"></i>&nbsp; Recuriter
+                </div>
+        </div>
+
+
+
+       <div id="devForm">
+          
+        <div class="col-md-6">
+            <label for="validationCustom01" class="form-label">Name: </label>
+            <input type="text" class="form-control" id="name"
+            placeholder="eg. John"
+            required>
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+          </div>
+  
+          <div class="col-md-6">
+            <label for="validationCustom01" id="emailText" class="form-label">Email: </label>
+            <input type="email" class="form-control" id="email"
+            placeholder="eg. admin@developer.com"
+            required>
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+          </div>
+         
+          <div class="col-md-6">
+            <label for="validationCustomUsername" class="form-label">Username:</label>
+            <div class="input-group has-validation">
+              
+              <input type="text" class="form-control" 
+              placeholder="Provide your username"
+              id="username" aria-describedby="inputGroupPrepend" required>
+              <div class="invalid-feedback">
+                Please choose a username.
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6"">
+            <label for="" class="form-label">Write About Yourself:</label>
+            <textarea placeholder="Write About You" class="form-control" id="about" rows="3"></textarea>
+          </div>
+
+            <div class="col-md-6">
+              <label for="inputEmail4" class="form-label"><i class="fa-brands fa-linkedin"></i> Linkedin: </label>
+              <input type="text" class="form-control" id="inputEmail4">
+            </div>
+            <div class="col-md-6">
+              <label for="inputPassword4" class="form-label"><i class="fa-brands fa-twitter"></i> Twitter: </label>
+              <input type="text" class="form-control" id="inputPassword4">
+            </div>
+       </div> 
+       
+        <div class="col-md-6">
+          <input id="loginBtn" class="btn" type="submit" value="Sign Up">
+        </div>
+      </form>
 
 {% endblock %}
-
 
 {% block js %}
+<script>
+    let recButton = document.getElementById("rec");
+    let devButton = document.getElementById("dev");
+    let username = document.getElementById("username");
+    let email = document.getElementById("email");
+    let name = document.getElementById("name");
+    let about = document.getElementById("about");
+    let emailText = document.getElementById("emailText");
 
+    recButton.addEventListener("click", ()=> {
+        console.log("REc")
+        document.getElementById("loginBtn").style.backgroundColor = "DarkViolet";
+        recButton.style.backgroundColor = "DarkViolet";
+        recButton.style.color = "white";
+        devButton.style.backgroundColor = "white";
+        devButton.style.color = "black";
+        username.classList.add("purple-place");
+        username.classList.remove("blue-place");
+        email.classList.add("purple-place");
+        email.classList.remove("blue-place");
+        name.classList.add("purple-place");
+        name.classList.remove("blue-place");
+        about.classList.add("purple-place");
+        about.classList.remove("blue-place");
+        emailText.textContent = "Company Email: ";
+    })
+    devButton.addEventListener("click", ()=> {
+        console.log("dev")
+        document.getElementById("loginBtn").style.backgroundColor = "DodgerBlue";
+        recButton.style.backgroundColor = "white";
+        recButton.style.color = "black";
+        devButton.style.backgroundColor = "DodgerBlue";
+        devButton.style.color = "white";
+
+        username.classList.add("blue-place");
+        username.classList.remove("purple-place");
+        email.classList.add("blue-place");
+        email.classList.remove("purple-place");
+        name.classList.add("blue-place");
+        name.classList.remove("purple-place");
+        about.classList.add("blue-place");
+        about.classList.remove("purple-place");
+        emailText.textContent = "Email: ";
+
+
+    })
+</script>
 {% endblock %}

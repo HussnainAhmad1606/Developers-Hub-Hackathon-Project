@@ -13,9 +13,13 @@
 
     <!-- Form -->
     
+  
+
     <form method="POST" class="row g-3 needs-validation" novalidate>
         {% csrf_token %}
-
+        <center>
+          <h1 id="heading">Login</h1>
+        </center>
         <div id="user">
                 <div id="dev">
                     <i class="fa-solid fa-code"></i> 
@@ -29,12 +33,11 @@
 
 
         <div class="col-md-6">
-          <label for="validationCustom01" class="form-label">Username: </label>
+          <label for="validationCustom01" class="form-label"/>
+        Username: </label>
           <input type="text" class="form-control" id="username" name="username"
-          placeholder="Enter Username"
-          required>
+          placeholder="Enter Username"/>
         </div>
-       
        
         <div class="col-md-6">
           <label for="validationCustom03" class="form-label">Password:</label>
@@ -54,6 +57,7 @@
 
 {% block js %}
 <script>
+   
     console.log("Login")
     let recButton = document.getElementById("rec")
     let devButton = document.getElementById("dev")

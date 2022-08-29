@@ -45,7 +45,7 @@ form {
     display: flex !important;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    padding: 40px;
 }
 
 #loginBtn {
@@ -82,6 +82,10 @@ form {
     align-items: center;
 }
 
+#heading {
+    font-family: AileronHeavy;
+    color: black !important;
+}
 
 .purple-place::-webkit-input-placeholder {
     color: var(--dark-purple) !important;
@@ -89,8 +93,4 @@ form {
 
 .blue-place::-webkit-input-placeholder {
     color: var(--dark-blue) !important;
-}
-
-#heading {
-    font-family: AileronHeavy;
-}
+ }

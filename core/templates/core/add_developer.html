@@ -1,20 +1,151 @@
 {% extends 'core/basic.html' %}
 
-{% block title %}Add new Developer - Developers Hub{% endblock %}
+{% block title %}Add New Developer: {% endblock %}
 
 {% block css %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'core/add_developer.css' %}">
 
 {% endblock %}
-
 {% block body %}
-    <form method="POST">
+    
+
+    <!-- Form -->
+    <center>
+        <h1 class="my-3" id="heading">Add New Developer</h1>
+    
+    </center>    
+    <form method="POST" class="row g-3 needs-validation" novalidate>
         {% csrf_token %}
-        <input type="text" placeholder="Developer Name" name="name" id="">
-        <input type="text" name="skills" placeholder="Enter Skills" id="">
-        <input type="submit" value="Submit Profile">
-    </form>
+
+        <div class="col-md-6">
+          <label for="validationCustom01" class="form-label">Name: </label>
+          <input type="text" class="form-control" id="validationCustom01"
+          placeholder="eg. John"
+          required>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <label for="validationCustom01" class="form-label">Email: </label>
+          <input type="email" class="form-control" id="validationCustom02"
+          placeholder="eg. admin@developer.com"
+          required>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+       
+        <div class="col-md-6">
+          <label for="validationCustomUsername" class="form-label">Username:</label>
+          <div class="input-group has-validation">
+            
+            <input type="text" class="form-control" 
+            placeholder="Provide your username"
+            id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+            <div class="invalid-feedback">
+              Please choose a username.
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="validationCustomUsername" class="form-label">Personal Website:</label>
+          <div class="input-group has-validation">
+            
+            <input type="text" class="form-control" 
+            placeholder="eg. https://example.com/"
+            id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+            <div class="invalid-feedback">
+              Please provide personal Website.
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Bio (Short): </label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Write your short intro"></textarea>
+          </div>
+
+        <div class="col-md-6">
+          <label for="validationCustom03" class="form-label">Skills:</label>
+          <input type="text" class="form-control" 
+          placeholder="eg. JavaScript, MongoDB"
+          id="validationCustom03" required>
+          <div class="invalid-feedback">
+            Please provide skills
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <label for="validationCustom03" class="form-label">Experience:</label>
+          <input type="text" class="form-control" 
+          placeholder="eg. 1 Years"
+          id="validationCustom03" required>
+          <div class="invalid-feedback">
+            Please provide experience
+          </div>
+        </div>
+
+        
+        
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Description (Long): </label>
+            <textarea placeholder="Write about you..." class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+
+          <div class="col-md-6">
+            <label for="inputEmail4" class="form-label"><i class="fa-brands fa-linkedin"></i> Linkedin: </label>
+            <input type="text" class="form-control" id="inputEmail4">
+          </div>
+          <div class="col-md-6">
+            <label for="inputPassword4" class="form-label"><i class="fa-brands fa-twitter"></i> Twitter: </label>
+            <input type="text" class="form-control" id="inputPassword4">
+          </div>
+
+       
+        <div class="col-md-6">
+          <input id="loginBtn" class="btn" type="submit" value="Submit Your Profile">
+        </div>
+      </form>
+
 {% endblock %}
 
 {% block js %}
+<script>
+    console.log("Login")
+    let recButton = document.getElementById("rec")
+    let devButton = document.getElementById("dev")
+    let username = document.getElementById("username")
+    let password = document.getElementById("password")
+    recButton.addEventListener("click", ()=> {
+        console.log("REc")
+        document.getElementById("loginBtn").style.backgroundColor = "DarkViolet"
+        recButton.style.backgroundColor = "DarkViolet"
+        recButton.style.color = "white"
+        devButton.style.backgroundColor = "white"
+        devButton.style.color = "black"
+        username.classList.add("purple-place");
+        username.classList.remove("blue-place");
+        password.classList.add("purple-place");
+        password.classList.remove("blue-place");
+        
+    })
+    devButton.addEventListener("click", ()=> {
+        console.log("dev")
+        document.getElementById("loginBtn").style.backgroundColor = "DodgerBlue"
+        recButton.style.backgroundColor = "white"
+        recButton.style.color = "black"
+        devButton.style.backgroundColor = "DodgerBlue"
+        devButton.style.color = "white"
 
+        username.classList.add("blue-place")
+        username.classList.remove("purple-place")
+        password.classList.add("blue-place")
+        password.classList.remove("purple-place")
+
+    })
+</script>
 {% endblock %}
